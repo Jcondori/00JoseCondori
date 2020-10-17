@@ -1,1 +1,2 @@
+Comando para generar Estructuraa para Desarrollo
 "C:\Program Files\Odoo 14.0e\python\python.exe" odoo-bin scaffold jcondori_module 00JoseCondori
