@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
-# class jcondori_module(models.Model):
-#     _name = 'jcondori_module.jcondori_module'
-#     _description = 'jcondori_module.jcondori_module'
+class Patient(models.Model):
+    _name = 'hospital.patient'
+    _description = 'Hospital Patient'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    name = fields.Char(string='Name')
+    surname = fields.Char(string='Surname')
+    birthdate = fields.Date(string='Birthdate')
