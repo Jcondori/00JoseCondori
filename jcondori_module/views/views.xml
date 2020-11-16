@@ -10,6 +10,8 @@
                     <field name="name"/>
                     <field name="surname"/>
                     <field name="birthdate"/>
+                    <field name="age"/>
+                    <field name="is_adult"/>
                 </tree>
             </field>
         </record>
@@ -19,13 +21,21 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="consult_finish" string="Consult Finish" class="oe_highlight" type="object"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="partner_id" domain="[('is_company','=',True),('name','ilike','C')]"/>
+                            <field name="mobile"/>
+                            <field name="number_consults"/>
                         </group>
                         <group>
                             <field name="surname"/>
-                            <field name="birthdate"/>
+                            <field name="birthdate" required="1"/>
+                            <field name="age"/>
+                            <field name="is_adult" attrs="{'invisible':[('age','&lt;',16)]}"/>
                         </group>
                     </sheet>
                 </form>
