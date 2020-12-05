@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 hospital.patient,hospital.patient,model_hospital_patient,,1,1,1,1
+hospital.category,hospital.category,model_hospital_category,,1,1,1,1
+hospital.consult,hospital.consult,model_hospital_consult,,1,1,1,1
+hospital.consult.invoice,hospital.consult.invoice,model_hospital_consult_invoice,,1,1,1,1

@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Hospital" id="hospital_menu_root"/>
+
+        <!-- menu categories -->
+        <menuitem name="Masters" id="hospital_masters" parent="hospital_menu_root"/>
+        <menuitem name="Transactions" id="hospital_transactions" parent="hospital_menu_root"/>
+
+    </data>
+</odoo>

@@ -27,8 +27,11 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/menuitem.xml',
+        'views/hospital_patient_view.xml',
+        'views/hospital_category_view.xml',
+        'views/hospital_consult_view.xml',
+        'views/hospital_consult_invoice_view.xml',
         'views/account_move_views.xml',
     ],
     # only loaded in demonstration mode

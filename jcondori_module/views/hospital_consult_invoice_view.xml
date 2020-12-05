@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hospital_concult_invoice_form">
+            <field name="name">hospital.consult.invoice.form</field>
+            <field name="model">hospital.consult.invoice</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="journal_id"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Create Invoice" name="action_create_invoice" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

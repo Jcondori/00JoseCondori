@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="hospital_consult_tree">
+            <field name="name">hospital.consult.tree</field>
+            <field name="model">hospital.consult</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="patient_id"/>
+                    <field name="date"/>
+                    <field name="category_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hospital_consult_form">
+            <field name="name">hospital.consult.form</field>
+            <field name="model">hospital.consult</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_register_invoice" id="action_register_invoice_btn" type="object" class="oe_highlight" string="Register Invoice"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="patient_id"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="category_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="diagnostic"/>
+                            <field name="recipe"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="hospital_consult_action_window">
+            <field name="name">Consult</field>
+            <field name="res_model">hospital.consult</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menuitem -->
+        <menuitem name="Consult" id="hospital_consult_menu" parent="hospital_transactions"
+                  action="hospital_consult_action_window"/>
+
+    </data>
+</odoo>

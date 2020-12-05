@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="hospital_category_tree">
+            <field name="name">hospital.category.tree</field>
+            <field name="model">hospital.category</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hospital_category_form">
+            <field name="name">hospital.category.form</field>
+            <field name="model">hospital.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="hospital_category_action_window">
+            <field name="name">Categorys</field>
+            <field name="res_model">hospital.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menuitem -->
+        <menuitem name="Categorys" id="hospital_category_menu" parent="hospital_masters"
+                  action="hospital_category_action_window"/>
+
+    </data>
+</odoo>

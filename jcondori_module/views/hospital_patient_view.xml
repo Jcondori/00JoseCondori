@@ -1,7 +1,6 @@
 <odoo>
     <data>
         <!-- explicit list view definition -->
-
         <record model="ir.ui.view" id="hospital_patient_tree">
             <field name="name">hospital.patient.tree</field>
             <field name="model">hospital.patient</field>
@@ -27,7 +26,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="partner_id" domain="[('is_company','=',True),('name','ilike','C')]"/>
+                            <field name="partner_id" domain="[('is_company','=',False)]"/>
                             <field name="mobile"/>
                             <field name="number_consults"/>
                         </group>
@@ -42,46 +41,16 @@
             </field>
         </record>
 
-
         <!-- actions opening views on models -->
-
         <record model="ir.actions.act_window" id="hospital_patint_action_window">
             <field name="name">Patient</field>
             <field name="res_model">hospital.patient</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-
-        <!-- server action to the one above -->
-        <!--
-            <record model="ir.actions.server" id="jcondori_module.action_server">
-              <field name="name">jcondori_module server</field>
-              <field name="model_id" ref="model_jcondori_module_jcondori_module"/>
-              <field name="state">code</field>
-              <field name="code">
-                action = {
-                  "type": "ir.actions.act_window",
-                  "view_mode": "tree,form",
-                  "res_model": model._name,
-                }
-              </field>
-            </record>
-        -->
-
-        <!-- Top menu item -->
-
-        <menuitem name="Hospital" id="hospital_menu_root"/>
-
-        <!-- menu categories -->
-        <menuitem name="Masters" id="hospital_masters" parent="hospital_menu_root"/>
-        <!--            <menuitem name="Menu 2" id="jcondori_module.menu_2" parent="jcondori_module.menu_root"/>-->
-
-        <!-- actions -->
-
+        <!-- menuitem -->
         <menuitem name="Patients" id="hospital_patient_menu" parent="hospital_masters"
                   action="hospital_patint_action_window"/>
-        <!--            <menuitem name="Server to list" id="jcondori_module" parent="jcondori_module.menu_2"-->
-        <!--                      action="jcondori_module.action_server"/>-->
 
     </data>
 </odoo>

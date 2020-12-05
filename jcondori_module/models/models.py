@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
@@ -15,7 +15,7 @@ class Patient(models.Model):
     is_adult = fields.Boolean(string='Is Adult')
     number_consults = fields.Integer(string='Nomber Consults', readonly=True)
 
-    partner_id = fields.Many2one(comodel_name='res.partner', string='Patient Contact')
+    partner_id = fields.Many2one('res.partner', string='Patient Contact')
     mobile = fields.Char(string='Mobile', related='partner_id.mobile', store=True)
 
     @api.constrains('birthdate')
@@ -46,15 +46,55 @@ class Patient(models.Model):
     def consult_finish(self):
         for rec in self:
             rec.number_consults += 1
-            rec.birthdate = fields.Date.today()
 
-    @api.model
-    def update_ruc(self):
-        patients = self.env['hospital.patient'].search([])
-        for rec in patients:
-            rec.cosulta_ruc()
 
-    def save_quantity_patinent(self):
-        for rec in self:
-            #Logica
-            True
+class HospitalCategory(models.Model):
+    _name = 'hospital.category'
+    _description = 'Hospital Category'
+
+    name = fields.Char(string='Name', required=True)
+    active = fields.Boolean(string='Active', default=True)
+
+
+class HospitalConsult(models.Model):
+    _name = 'hospital.consult'
+    _description = 'Hospital Consult'
+
+    name = fields.Char(string='Name', required=True)
+    patient_id = fields.Many2one('hospital.patient', string='Patient', required=True)
+    date = fields.Date(required=True, default=fields.Date.context_today)
+    diagnostic = fields.Html('Diagnostic')
+    recipe = fields.Html('Recipe')
+    category_id = fields.Many2one('hospital.category', string='Category', required=True)
+
+    def action_register_invoice(self):
+        return {
+            'name': _('Create Invoice'),
+            'res_model': 'hospital.consult.invoice',
+            'view_mode': 'form',
+            'context': {
+                'active_model': 'hospital.consult',
+                'active_ids': self.ids,
+            },
+            'target': 'new',
+            'type': 'ir.actions.act_window',
+        }
+
+
+class HospitalConsultInvoice(models.TransientModel):
+    _name = 'hospital.consult.invoice'
+    _description = 'Create Invoice Consult'
+
+    journal_id = fields.Many2one('account.journal', string='Journal', required=True)
+
+    def action_create_invoice(self):
+        consults = self.env['hospital.consult'].browse(self._context.get('active_ids', []))
+        for consult in consults:
+            vals = {
+                'journal_id': self.journal_id and self.journal_id.id or False,
+                'partner_id': consult.patient_id.partner_id and consult.patient_id.partner_id.id or False,
+                'move_type': 'out_invoice',
+                'state': 'draft'
+            }
+            invoice = self.env['account.move'].create(vals)
+            consult.invoice_id = invoice and invoice.id or False
