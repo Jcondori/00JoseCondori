@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record model="hospital.category" id="data_hospital_category_odontologia">
+            <field name="name">Odontologia</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="hospital.category" id="data_hospital_category_medicina">
+            <field name="name">Medicina</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="hospital.category" id="data_hospital_category_otros">
+            <field name="name">Otros</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="hospital.category" id="data_hospital_category_guarderia">
+            <field name="name">Guarderia</field>
+            <field name="active" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -14,6 +14,9 @@ class Patient(models.Model):
     age = fields.Integer(string='Age', compute='_compute_age', store=True)
     is_adult = fields.Boolean(string='Is Adult')
     number_consults = fields.Integer(string='Nomber Consults', readonly=True)
+    type_home = fields.Selection([('cpm', 'Minor populated center'),
+                                  ('ubr', 'Urbanization'),
+                                  ('none', 'None')], string='Type Home')
 
     partner_id = fields.Many2one('res.partner', string='Patient Contact')
     mobile = fields.Char(string='Mobile', related='partner_id.mobile', store=True)
@@ -22,7 +25,7 @@ class Patient(models.Model):
     def _check_birthdate(self):
         for rec in self:
             if rec.birthdate > fields.Date.today():
-                raise ValidationError('The date of birth cannot be older than the current date')
+                raise ValidationError(_('The date of birth cannot be older than the current date'))
 
     @api.depends('birthdate')
     def _compute_age(self):

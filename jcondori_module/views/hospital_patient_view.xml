@@ -9,6 +9,7 @@
                     <field name="name"/>
                     <field name="surname"/>
                     <field name="birthdate"/>
+                    <field name="type_home"/>
                     <field name="age"/>
                     <field name="is_adult"/>
                 </tree>
@@ -33,6 +34,7 @@
                         <group>
                             <field name="surname"/>
                             <field name="birthdate" required="1"/>
+                            <field name="type_home"/>
                             <field name="age"/>
                             <field name="is_adult" attrs="{'invisible':[('age','&lt;',16)]}"/>
                         </group>

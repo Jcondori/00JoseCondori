@@ -1,0 +1,50 @@
+#. module: jcondori_module
+#: model:ir.ui.menu,name:jcondori_module.hospital_masters
+msgid "Masters"
+msgstr "Principales"
+
+#. module: jcondori_module
+#: model:ir.ui.menu,name:jcondori_module.hospital_transactions
+msgid "Transactions"
+msgstr "Transacciones"
+
+#. module: jcondori_module
+#: model:ir.model.fields,field_description:jcondori_module.field_hospital_patient__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: jcondori_module
+#: model:ir.model.fields,field_description:jcondori_module.field_hospital_patient__is_adult
+msgid "Is Adult"
+msgstr "Es Adulto"
+
+#. module: jcondori_module
+#: model:ir.model.fields,field_description:jcondori_module.field_hospital_patient__type_home
+msgid "Type Home"
+msgstr "Tipo de Hogar"
+
+#. module: jcondori_module
+#: model:ir.model.fields.selection,name:jcondori_module.selection__hospital_patient__type_home__cpm
+msgid "Minor populated center"
+msgstr "Centro Poblado Menor"
+
+#. module: jcondori_module
+#: model:ir.model.fields.selection,name:jcondori_module.selection__hospital_patient__type_home__ubr
+msgid "Urbanization"
+msgstr "Urbanización"
+
+#. module: jcondori_module
+#: model:ir.model.fields.selection,name:jcondori_module.selection__hospital_patient__type_home__none
+msgid "None"
+msgstr "Ninguno"
+
+#. module: jcondori_module
+#: code:addons/jcondori_module/models/models.py:0
+#, python-format
+msgid "The date of birth cannot be older than the current date"
+msgstr "La fecha de nacimiento no puede ser mayor a la fecha actual"
+
+#. module: jcondori_module
+#: model_terms:ir.ui.view,arch_db:jcondori_module.hospital_patient_form
+msgid "Consult Finish"
+msgstr "Consulta Finalizada"
