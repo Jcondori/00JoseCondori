@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <!--        <record id="hospital_report" model="ir.actions.report">-->
+        <!--            <field name="name">Print2</field>-->
+        <!--            <field name="model">hospital.patient</field>-->
+        <!--            <field name="report_type">qweb-pdf</field>-->
+        <!--            <field name="report_name">jcondori_module.custom_invoice</field>-->
+        <!--            <field name="report_file">jcondori_module.custom_invoice</field>-->
+        <!--            <field name="print_report_name">object.name</field>-->
+        <!--            <field name="attachment">object.name+'.pdf'</field>-->
+        <!--            <field name="binding_model_id" ref="model_hospital_consult"/>-->
+        <!--            <field name="binding_type">report</field>-->
+        <!--        </record>-->
+
+        <report id="hospital_patient_online"
+                string="Online"
+                model="hospital.consult"
+                report_type="qweb-html"
+                name="jcondori_module.custom_invoice"
+                file="jcondori_module.custom_invoice"
+        />
+
+        <report id="hospital_patient_report"
+                string="Printing"
+                model="hospital.consult"
+                report_type="qweb-pdf"
+                name="jcondori_module.custom_invoice"
+                file="jcondori_module.custom_invoice"
+        />
+    </data>
+</odoo>

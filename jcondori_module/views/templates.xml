@@ -1,24 +1,60 @@
 <odoo>
     <data>
-<!--
-        <template id="listing">
-          <ul>
-            <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
-                <t t-esc="object.display_name"/>
-              </a>
-            </li>
-          </ul>
-        </template>
-        <template id="object">
-          <h1><t t-esc="object.display_name"/></h1>
-          <dl>
-            <t t-foreach="object._fields" t-as="field">
-              <dt><t t-esc="field"/></dt>
-              <dd><t t-esc="object[field]"/></dd>
+
+        <template id="custom_invoice" name="Custom">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')"></div>
+                        <div class="page">
+                            <div id="informations" class="row mt32 mb32">
+                                <div class="col-auto col-3 mw-100 mb-2" t-if="o.name" name="name">
+                                    <strong>Name:</strong>
+                                    <p class="m-0" t-field="o.name"/>
+                                </div>
+                                <div class="col-auto col-3 mw-100 mb-2" t-if="o.date" name="date">
+                                    <strong>Date:</strong>
+                                    <p class="m-0" t-field="o.date"/>
+                                </div>
+                                <div class="col-auto col-3 mw-100 mb-2" t-if="o.patient_id.partner_id.phone" name="date">
+                                    <strong>Phone:</strong>
+                                    <p class="m-0" t-field="o.patient_id.partner_id.phone"/>
+                                </div>
+                                <div class="col-auto col-3 mw-100 mb-2" t-if="o.patient_id.partner_id.comment" name="date">
+                                    <strong>Note:</strong>
+                                    <p class="m-0" t-field="o.patient_id.partner_id.comment"/>
+                                </div>
+                            </div>
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="o.name"/>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="o.date"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <!--                            <div class="alert alert-success">-->
+                            <!--                            </div>-->
+                        </div>
+                    </t>
+                </t>
             </t>
-          </dl>
         </template>
--->
+        <!--        <template id="object">-->
+        <!--            <h1>-->
+        <!--                <t t-esc="object.display_name"/>-->
+        <!--            </h1>-->
+        <!--            <dl>-->
+        <!--                <t t-foreach="object._fields" t-as="field">-->
+        <!--                    <dt>-->
+        <!--                        <t t-esc="field"/>-->
+        <!--                    </dt>-->
+        <!--                    <dd>-->
+        <!--                        <t t-esc="object[field]"/>-->
+        <!--                    </dd>-->
+        <!--                </t>-->
+        <!--            </dl>-->
+        <!--        </template>-->
+
     </data>
 </odoo>

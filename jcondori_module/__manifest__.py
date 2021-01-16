@@ -34,6 +34,8 @@
         'views/hospital_consult_invoice_view.xml',
         'views/account_move_views.xml',
         'data/data.xml',
+        'views/templates.xml',
+        'views/hospital_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
