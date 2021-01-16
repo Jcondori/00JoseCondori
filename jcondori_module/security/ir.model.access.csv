@@ -3,3 +3,4 @@ hospital.patient,hospital.patient,model_hospital_patient,,1,1,1,1
 hospital.category,hospital.category,model_hospital_category,,1,1,1,1
 hospital.consult,hospital.consult,model_hospital_consult,,1,1,1,1
 hospital.consult.invoice,hospital.consult.invoice,model_hospital_consult_invoice,,1,1,1,1
+hospital.consult_resume_modal,hospital.consult_resume_modal,model_hospital_consult_resume_modal,,1,1,1,1

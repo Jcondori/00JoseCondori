@@ -1,0 +1,1 @@
+from . import hospital_consult_resume

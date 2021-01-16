@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <template id="hospital_consult_resume">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="alert alert-success">
+                            <t t-esc="name"/>
+                        </div>
+                        <div class="alert alert-success">
+                            <t t-esc="note"/>
+                        </div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Patient</th>
+                              <th scope="col">Count</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <t t-foreach="patients" t-as="patient">
+                                <tr>
+                                  <td><t t-esc="patient['patient_name']"/></td>
+                                  <td><t t-esc="patient['patient_count']"/></td>
+                                </tr>
+                            </t>
+                          </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report id="hospital_consult_resume_report"
+                        string="Hospital Resume Report"
+                        model="hospital.consult_resume_modal"
+                        report_type="qweb-pdf"
+                        name="jcondori_module.hospital_consult_resume"
+                        file="jcondori_module.hospital_consult_resume"
+                />
+    </data>
+</odoo>
