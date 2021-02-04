@@ -38,6 +38,8 @@
         'views/hospital_report.xml',
         'reports/hospital_consult_resume_template.xml',
         'reports/hospital_consult_resume_view.xml',
+        'reports/hospital_txt_consult_view.xml',
+        'reports/hospital_excel_consult_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

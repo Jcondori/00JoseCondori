@@ -4,3 +4,5 @@ hospital.category,hospital.category,model_hospital_category,,1,1,1,1
 hospital.consult,hospital.consult,model_hospital_consult,,1,1,1,1
 hospital.consult.invoice,hospital.consult.invoice,model_hospital_consult_invoice,,1,1,1,1
 hospital.consult_resume_modal,hospital.consult_resume_modal,model_hospital_consult_resume_modal,,1,1,1,1
+hospital.txt_consult_modal,hospital.txt_consult_modal,model_hospital_txt_consult_modal,,1,1,1,1
+hospital.excel_consult_modal,hospital.excel_consult_modal,model_hospital_excel_consult_modal,,1,1,1,1

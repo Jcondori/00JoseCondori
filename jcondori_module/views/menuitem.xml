@@ -1,5 +1,6 @@
 <odoo>
     <data>
+
         <!-- Top menu item -->
         <menuitem name="Hospital" id="hospital_menu_root"/>
 
@@ -7,6 +8,11 @@
         <menuitem name="Masters" id="hospital_masters" parent="hospital_menu_root"/>
         <menuitem name="Transactions" id="hospital_transactions" parent="hospital_menu_root"/>
         <menuitem name="Reports" id="hospital_reports" parent="hospital_menu_root"/>
+
+        <!-- menu subcategories -->
+        <menuitem name="PDF" id="pdf_hospital_reports" parent="hospital_reports"/>
+        <menuitem name="TXT" id="txt_hospital_reports" parent="hospital_reports"/>
+        <menuitem name="Excel" id="excel_hospital_reports" parent="hospital_reports"/>
 
     </data>
 </odoo>
