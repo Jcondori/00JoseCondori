@@ -4,4 +4,4 @@ Comando para generar Estructuraa para Desarrollo
 "C:\Program Files\Odoo 14.0e\python\python.exe" odoo-bin scaffold qa_standard_locations_account 00JoseCondori
 "C:\Program Files\Odoo 14.0e\python\python.exe" odoo-bin scaffold qa_standard_locations_accounting Localization-14.0
 
-python3 odoo-bin scaffold l10n_pe_pos_vat Libraries
+python3 odoo-bin scaffold qa_statements_import Development-14.0
