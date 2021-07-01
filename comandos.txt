@@ -4,4 +4,9 @@ Comando para generar Estructuraa para Desarrollo
 "C:\Program Files\Odoo 14.0e\python\python.exe" odoo-bin scaffold qa_standard_locations_account 00JoseCondori
 "C:\Program Files\Odoo 14.0e\python\python.exe" odoo-bin scaffold qa_standard_locations_accounting Localization-14.0
 
-python3 odoo-bin scaffold qa_reconciliation_payments Development-14.0
+python3 odoo-bin scaffold qa_sale_delivery_cost Development-14.0
+python3 odoo-bin shell -d agra_test_nofs -c config.conf
+python3 odoo-bin shell -c config.conf -d oficentro_test_nofs -u qa_standard_locations_remission_guide
+
+python3 /home/odoo/src/odoo/odoo-bin shell -d zamine-production-1193811 --addons-path='/home/odoo/src/odoo/odoo/addons,/home/odoo/src/user,/home/odoo/src/odoo/addons,/home/odoo/src/enterprise,/home/odoo/src/themes'
+lead = env['crm.lead'].browse(25)
